@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fi777\\OneDrive\\Desktop\\University\\Экспертные системы\\AutomobileExpertSystem\\AutomobileExpertSystem\\AutomobileExpertSystem.csproj": {}
+    "C:\\Users\\fi777\\OneDrive\\Desktop\\University\\ExpertSystems\\AutomobileExpertSystem\\AutomobileExpertSystem\\AutomobileExpertSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fi777\\OneDrive\\Desktop\\University\\Экспертные системы\\AutomobileExpertSystem\\AutomobileExpertSystem\\AutomobileExpertSystem.csproj": {
+    "C:\\Users\\fi777\\OneDrive\\Desktop\\University\\ExpertSystems\\AutomobileExpertSystem\\AutomobileExpertSystem\\AutomobileExpertSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fi777\\OneDrive\\Desktop\\University\\Экспертные системы\\AutomobileExpertSystem\\AutomobileExpertSystem\\AutomobileExpertSystem.csproj",
+        "projectUniqueName": "C:\\Users\\fi777\\OneDrive\\Desktop\\University\\ExpertSystems\\AutomobileExpertSystem\\AutomobileExpertSystem\\AutomobileExpertSystem.csproj",
         "projectName": "AutomobileExpertSystem",
-        "projectPath": "C:\\Users\\fi777\\OneDrive\\Desktop\\University\\Экспертные системы\\AutomobileExpertSystem\\AutomobileExpertSystem\\AutomobileExpertSystem.csproj",
+        "projectPath": "C:\\Users\\fi777\\OneDrive\\Desktop\\University\\ExpertSystems\\AutomobileExpertSystem\\AutomobileExpertSystem\\AutomobileExpertSystem.csproj",
         "packagesPath": "C:\\Users\\fi777\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fi777\\OneDrive\\Desktop\\University\\Экспертные системы\\AutomobileExpertSystem\\AutomobileExpertSystem\\obj\\",
+        "outputPath": "C:\\Users\\fi777\\OneDrive\\Desktop\\University\\ExpertSystems\\AutomobileExpertSystem\\AutomobileExpertSystem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

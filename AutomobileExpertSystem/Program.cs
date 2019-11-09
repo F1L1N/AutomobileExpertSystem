@@ -7,7 +7,8 @@ namespace AutomobileExpertSystem
         static void Main(string[] args)
         {
             TestManager testManager = new TestManager();
-            testManager.startAutoTest();
+            //testManager.startAutoTest();
+            testManager.startManualTest();
         }
     }
 }

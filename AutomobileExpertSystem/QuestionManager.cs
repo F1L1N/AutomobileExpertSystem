@@ -55,34 +55,13 @@ namespace AutomobileExpertSystem
             for (LinkedListNode<Question> question = firstNode; question != null; question = question.Next)
             {
                 signal = question.Value.show();
-                switch (signal)
+                while (signal == "back")
                 {
-                    case "":
-                        break;
-                    case "back":
-                        if (question != firstNode)
-                        {
-                            question = question.Previous;
-                            if (question != firstNode)
-                            {
-                                question = question.Previous;
-                            }
-                            else
-                            {
-                                signal = question.Value.show();
-                            }
-                        }
-                        break;
-                    default:
-                        if (question != firstNode)
-                        {
-                            question = question.Previous;
-                        }
-                        else
-                        {
-                            signal = question.Value.show();
-                        }
-                        break;
+                    if (question != firstNode)
+                    {
+                        question = question.Previous;   
+                    }
+                    signal = question.Value.show();
                 }
             } 
             answersAnalysis(factManager);

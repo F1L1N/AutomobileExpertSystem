@@ -40,7 +40,7 @@ namespace AutomobileExpertSystem.TestModule
             return test;
         }
 
-        private void startManualTest()
+        public void startManualTest()
         {
             Test test = initManualTest();
             FactManager factManager = new FactManager();
@@ -95,9 +95,9 @@ namespace AutomobileExpertSystem.TestModule
                 output.WriteLine("Тема теста: " + test.topic);
                 output.WriteLine("Начало теста: " + test.startTestTime);
                 output.WriteLine("Конец теста: " + test.finishTestTime);
-                output.WriteLine("Количество заданных вопросов: " + test.numberQuestions);
-                output.WriteLine("Количество правильных вопросов: " + test.rightAnswers);
-                output.WriteLine("Список вопросов с неправильным ответом: " + test.wrongAnswers.ToString());
+                if (test.numberQuestions != 0) output.WriteLine("Количество заданных вопросов: " + test.numberQuestions);
+                if (test.rightAnswers != 0) output.WriteLine("Количество правильных вопросов: " + test.rightAnswers);
+                if (test.wrongAnswers != null) output.WriteLine("Список вопросов с неправильным ответом: " + test.wrongAnswers.ToString());
 
                 output.WriteLine();
             }
