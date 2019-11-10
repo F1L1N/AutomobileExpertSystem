@@ -21,7 +21,7 @@ namespace AutomobileExpertSystem
             questionDatabase.Add(new Question(i, "нцм", modifyQuestion + "ненормальный цвет масла?")); i++;
             questionDatabase.Add(new Question(i, "зввп", modifyQuestion + "затруднено включение / выключение передач?")); i++;
             questionDatabase.Add(new Question(i, "нппвд", modifyQuestion + "нормальное переключение передач при выключенном двигателе?")); i++;
-            questionDatabase.Add(new Question(i, "шпдвп", modifyQuestion + "шумы при движении с включенной передачей?")); i++;
+            questionDatabase.Add(new Question(i, "шдвп", modifyQuestion + "шумы при движении с включенной передачей?")); i++;
             questionDatabase.Add(new Question(i, "зпсош", modifyQuestion + "заедание или повреждение сателлитов и оконечной шестерни?")); i++;
             questionDatabase.Add(new Question(i, "шп", modifyQuestion + "шумы при поворотах?")); i++;
             questionDatabase.Add(new Question(i, "дндпп", modifyQuestion + "детонация при начале движения или при переключении передач?")); i++;
@@ -38,44 +38,76 @@ namespace AutomobileExpertSystem
             questionDatabase.Add(new Question(i, "сд", modifyQuestion + "стук в двигателе?"));
         }
 
-        public QuestionDatabase autoStart(FactManager factManager)
-        {
-            LinkedListNode<Question> firstNode = questionDatabase.getQuestions().First;
-            for (LinkedListNode<Question> question = firstNode; question != null; question = question.Next)
-            {
-                question.Value.show();
-            }
-            return this.questionDatabase;
-        }
-
         public QuestionDatabase manualStart(FactManager factManager) 
         {
             string signal;
             LinkedListNode<Question> firstNode = questionDatabase.getQuestions().First;
             for (LinkedListNode<Question> question = firstNode; question != null; question = question.Next)
             {
-                signal = question.Value.show();
-                while (signal == "back")
+                if (question.Value.getStatus())
                 {
-                    if (question != firstNode)
-                    {
-                        question = question.Previous;   
-                    }
-                    updateQuestionList(signal);
-                    
                     signal = question.Value.show();
+                    while (signal == "back")
+                    {
+                        if (question != firstNode)
+                        {
+                            question = question.Previous;
+                        }  
+                        signal = question.Value.show();
+                    }
+                    string currentQuestionTag = question.Value.getTag();
+                    bool continueSignal = updateQuestionList(signal, currentQuestionTag, factManager);
+                    if (!continueSignal) break;
                 }
-                updateQuestionList(signal);
             } 
             answersAnalysis(factManager);
             return questionDatabase;
         }
 
-        private void updateQuestionList(string signal)
+        private bool updateQuestionList(string signal, string tag, FactManager factManager)
         {
             if (signal == "y")
             {
+                //выборка списка тегов из базы знаний
+                List<string> resultTags = new List<string>();
+                Dictionary<List<string>, Fact> facts = factManager.getFactDatabase().getFacts();
+                int count = 0;
+                bool continueSignal = true;
+                foreach (KeyValuePair<List<string>, Fact> entry in facts)
+                {
+                    if (entry.Key.Contains(tag))
+                    {
+                        foreach (var element in entry.Key)
+                        {
+                            resultTags.Add(element);
+                        }
+                        count++;
+                    }
+                }
 
+                if (count == 1) continueSignal = false;
+
+                LinkedListNode<Question> firstNode = questionDatabase.getQuestions().First;
+                for (LinkedListNode<Question> question = firstNode; question != null; question = question.Next)
+                {
+                    string currentQuestionTag = question.Value.getTag();
+                    //question.Value.getId() != id && 
+                    if (!resultTags.Contains(currentQuestionTag))
+                    {
+                        //удаление узла question
+                        question.Value.setStatus(false);
+
+                        /*question.Previous.Next = question.Next;
+                        question.Next.Previous = question.Previous;
+                        question.Previous = null;
+                        question.Next = null;*/
+                    }
+                }
+                return continueSignal;
+            }
+            else
+            {
+                return true;
             }
         }
 

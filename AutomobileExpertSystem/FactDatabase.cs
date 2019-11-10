@@ -8,6 +8,11 @@ namespace AutomobileExpertSystem
     {
         private Dictionary<List<string>, Fact> factBox = new Dictionary<List<string>, Fact>();
 
+        public Dictionary<List<string>, Fact> getFacts()
+        {
+            return factBox;
+        }
+
         public void Add(List<string> tags, Fact fact)
         {
             factBox.Add(tags, fact);

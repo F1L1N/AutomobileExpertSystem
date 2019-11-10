@@ -30,7 +30,7 @@ namespace AutomobileExpertSystem
             factDatabase.Add(new List<string>() { "икп", "нениш", "ицп" }, new Fact("Избыточное давление в шинах."));
             factDatabase.Add(new List<string>() { "нениш", "нериш" }, new Fact("Ненормально действует подвеска."));
             factDatabase.Add(new List<string>() { "ут" }, new Fact("Нарушена топливная система."));
-            factDatabase.Add(new List<string>() { "чцвг" }, new Fact("Требуется заменить масло."));
+            factDatabase.Add(new List<string>() { "чцвг", "нцм" }, new Fact("Требуется заменить масло."));
             factDatabase.Add(new List<string>() { "бцвг" }, new Fact("Требуется замена топливного фильтра."));
             factDatabase.Add(new List<string>() { "бцвг", "сд" }, new Fact("Повреждены головки клапанов."));
         }

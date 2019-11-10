@@ -12,14 +12,31 @@ namespace AutomobileExpertSystem
 
         private bool answer;
 
+        private bool available = true;
+
         public bool getAnswer()
         {
             return answer;
         }
 
+        public int getId()
+        {
+            return id;
+        }
+
         public string getTag()
         {
             return tag;
+        }
+
+        public void setStatus(bool status)
+        {
+            available = status;
+        }
+
+        public bool getStatus()
+        {
+            return available;
         }
 
         public Question(int id, string tag, string question)
@@ -38,13 +55,14 @@ namespace AutomobileExpertSystem
             {
                 case "y":
                     answer = true;
-                    return string.Empty;
+                    break;
                 case "n":
                     answer = false;
-                    return string.Empty;
+                    break;
                 default:
-                    return currentAnswer;
+                    break;
             }
+            return currentAnswer;
         }
 
         public string show()
