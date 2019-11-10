@@ -61,12 +61,22 @@ namespace AutomobileExpertSystem
                     {
                         question = question.Previous;   
                     }
+                    updateQuestionList(signal);
+                    
                     signal = question.Value.show();
                 }
+                updateQuestionList(signal);
             } 
             answersAnalysis(factManager);
-            //TODO логгирование списка вопросов
-            return this.questionDatabase;
+            return questionDatabase;
+        }
+
+        private void updateQuestionList(string signal)
+        {
+            if (signal == "y")
+            {
+
+            }
         }
 
         private void answersAnalysis(FactManager factManager)
